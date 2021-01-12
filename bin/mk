@@ -1,0 +1,6 @@
+#!/bin/bash
+set -x
+
+[ -z "$1" ] && echo "ERROR: no input file" && exit 1
+
+g++ -std=c++11 -o .mk.out "$1" && ./.mk.out
