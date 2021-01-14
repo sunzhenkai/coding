@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+# set -x
 
 [ -z "$1" ] && echo "ERROR: no input file" && exit 1
 
