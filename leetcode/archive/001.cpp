@@ -7,28 +7,24 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        std::map<int, int> m;
-        std::vector<int> res;
+        map<int, int> m;
         for (int i = 0; i < nums.size(); ++i) {
-            int remain = target - nums[i];
-            auto it = m.find(remain);
-            if (it != m.end()) {
-                res.emplace_back(it->second);
-                res.emplace_back(i);
-                return res;
+            int num = nums[i];
+            std::map<int, int>::iterator it = m.find(target - num);
+            if (it == m.end()) {
+                m[num] = i;
             } else {
-                m.emplace(nums[i], i);
+                return {it->second, i};
             }
         }
-        return res;
+        return {0, 0};
     }
 };
 
 int main() {
     Solution s;
-    std::vector<int> v = readVec("in");
-    printVector(v);
-    std::vector<int> res = s.twoSum(v, 9);
-    printVector(res);
+    int target = r<int>();
+    vector<int> arr = rV<int>();
+    pV(s.twoSum(arr, target));
     return 0;
 }
