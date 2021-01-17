@@ -1,0 +1,12 @@
+#!/bin/bash
+# set -x
+# cp ../template/TempBack.cpp "$1" && vim "$1"
+# author="$(cat i.conf | sed 's/author:\s(.*)/\1/g')"
+author=wii
+email=zhenkai.sun@qq.com
+cat ../template/TempBack.cpp | \
+    sed "s/\(@file\)/\1   $1/g" | \
+    sed "s/\(@brief\)/\1  $2/g" | \
+    sed "s/\(@author\)/\1 $author/g" | \
+    sed "s/\(@email\)/\1  $email/g" | \
+    sed "s/\(@date\)/\1   $(date)/g" > "$1" && vim "$1" 

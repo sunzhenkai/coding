@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 #include <string>
 #include <map>
 #include <set>
@@ -83,3 +84,17 @@ std::vector<T> rV() {
     }
     return res;
 }
+
+template <typename T>
+std::vector<T> rNV() {
+    std::vector<T> res;
+    T t;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> t;
+        res.push_back(t);
+    }
+    return res;
+}
+

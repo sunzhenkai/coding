@@ -1,2 +1,0 @@
-#!/bin/bash
-cp archive/TempBack.cpp "$1"

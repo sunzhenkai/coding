@@ -1,13 +1,13 @@
 /**
- * @file
+ * @file   1005.cpp
  *
- * @brief
+ * @brief  Number Sequence
  *
- * @author
+ * @author wii
  *
- * @email
+ * @email  zhenkai.sun@qq.com
  *
- * @date
+ * @date   Sat Jan 16 12:37:14 CST 2021
  */
 
 #include <iostream>
@@ -15,8 +15,6 @@
 #include <string>
 #include <map>
 #include <set>
-#include "../template/utils.h"
-#include "../template/leetcode.h"
 
 using namespace std;
 

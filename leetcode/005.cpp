@@ -1,47 +1,53 @@
+/**
+ * @file   005.cpp
+ *
+ * @brief  最长回文子串
+ *
+ * @author wii
+ *
+ * @email  zhenkai.sun@qq.com
+ *
+ * @date   Sat Jan 16 13:40:48 CST 2021
+ */
+
 #include <iostream>
-#include "utils.h"
-#include "leetcode.h"
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
+#include "../template/utils.h"
+#include "../template/leetcode.h"
 
 using namespace std;
 
 class Solution {
 public:
-    string longestPalindrome(string s) {        
-        string ans = "";
-        int n= s.length();
-        bool dp[n+1][n+1];
-        memset(dp, 0, sizeof(dp));
-
-        if (n <= 1) {
-            return s;
-        }
-        
-        for (int l = 0; l < n; ++l) {
-            for (int i = 0; i + 1 < n; ++i) {
-                int j = i + l;
-                if (l == 0) {
-                    dp[i][j] = true;
-                } else if (l == 1) {
-                    dp[i][j] = s[i] == s[j];
-                } else {
-                    dp[i][j] = dp[i+1][j-1] && s[i] == s[j];
-                }
-
-                if (dp[i][j] && l + 1 > ans.length()) {
-                    ans = s.substr(i, l + 1);
-                }
+    string longestPalindrome(string s) {
+        int len = s.size(), ri, i, j, c = 0, mxl = 0;
+        while (c < len) {
+            int i = c, j = c;
+            while (j + 1 < len && s[j] == s[j+1]) { ++j; ++c; };
+            while (i >= 0 && j < len && s[i] == s[j]) { --i; ++j; }
+            if (j - i - 1 > mxl) {
+                mxl = j - i - 1;
+                ri = i + 1;
             }
-        }
 
-        return ans;
+            ++c;
+        }
+        return s.substr(ri, mxl);
     }
 };
 
 int main() {
+    int n;
+    string is;
     Solution s;
-    string inp;
-    while (cin >> inp) {
-        cout << s.longestPalindrome(inp) << endl;
+    cin >> n;
+    while (n--) {
+        cin >> is;
+        cout << s.longestPalindrome(is) << endl;
     }
     return 0;
 }
+
