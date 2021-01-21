@@ -9,4 +9,4 @@ cat ../template/TempBack.cpp | \
     sed "s/\(@brief\)/\1  $2/g" | \
     sed "s/\(@author\)/\1 $author/g" | \
     sed "s/\(@email\)/\1  $email/g" | \
-    sed "s/\(@date\)/\1   $(date)/g" > "$1" && vim "$1" 
+    sed "s/\(@date\)/\1   $(date)/g" > "$1" && vim +23 "$1" 
