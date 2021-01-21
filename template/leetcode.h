@@ -34,3 +34,19 @@ void printList(ListNode *head) {
     }
     std::cout << std::endl;
 }
+
+ListNode* readList() {
+    ListNode *head = nullptr, *cur = nullptr;
+    int n, v;
+    cin >> n;
+    while (n--) {
+        ListNode *nn = new ListNode(number);
+        cin >> v;
+        if (head == nullptr) header = cur = nn;
+        else {
+            cur->next = nn;
+            cur = nn;
+        }
+    }
+    return head;
+}
