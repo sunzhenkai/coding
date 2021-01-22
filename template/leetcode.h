@@ -40,9 +40,9 @@ ListNode* readList() {
     int n, v;
     cin >> n;
     while (n--) {
-        ListNode *nn = new ListNode(number);
         cin >> v;
-        if (head == nullptr) header = cur = nn;
+        ListNode *nn = new ListNode(v);
+        if (head == nullptr) head = cur = nn;
         else {
             cur->next = nn;
             cur = nn;
