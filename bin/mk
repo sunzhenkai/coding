@@ -3,4 +3,8 @@
 
 [ -z "$1" ] && echo "ERROR: no input file" && exit 1
 
-g++ -std=c++11 -I../template -o .mk.out "$1" && ./.mk.out
+if [[ "$1" =~ "cpp" ]]; then
+    g++ -std=c++11 -I../template -o .mk.out "$1" && ./.mk.out
+else
+    g++ -std=c++11 -I../template -o .mk.out "$1.cpp" && ./.mk.out < "$1.in"
+fi
