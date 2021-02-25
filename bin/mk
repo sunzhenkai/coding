@@ -6,5 +6,11 @@
 if [[ "$1" =~ "cpp" ]]; then
     g++ -std=c++11 -I../template -o .mk.out "$1" && ./.mk.out
 else
-    g++ -std=c++11 -I../template -o .mk.out "$1.cpp" && ./.mk.out < "$1.in"
+    g++ -std=c++11 -I../template -o .mk.out "$1.cpp" 
+fi
+
+if [ -e "$1.in" ]; then
+    ./.mk.out < "$1.in"
+else
+    ./.mk.out
 fi

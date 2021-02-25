@@ -13,14 +13,14 @@ private:
     A() {
         cout << "create A" << endl;
     }
-}
+};
 
 int main() {
-    A::instance(); 
-    A::instance(); 
-    A::instance(); 
-    A::instance(); 
-    A::instance(); 
-    A::instance(); 
+    A::Instance(); 
+    A::Instance(); 
+    A::Instance(); 
+    A::Instance(); 
+    A::Instance(); 
+    A::Instance(); 
     return 0;
 }
