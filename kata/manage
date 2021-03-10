@@ -8,14 +8,6 @@ import random
 DATA_FILE = 'data.json'
 
 
-# class Problem:
-#     def __init__(self, id, name, desc):
-#         self.id = id
-#         self.name = name
-#         self.desc = desc
-#     pass
-
-
 def load():
     if not os.path.exists(DATA_FILE) or os.path.getsize(DATA_FILE) == 0:
         with open(DATA_FILE, 'w+') as f:
@@ -61,7 +53,6 @@ def take():
         ro = random.randint(0, len(dt) - 1)
         rd = dt[ro]
         pt(rd)
-        # print(json.dumps(dt[ro], indent=4, ensure_ascii=False))
 
 
 def remove():
@@ -85,7 +76,6 @@ def show():
         if not ipt:
             print('\n', '-' * 50, end='\n\n', sep='')
             ipt = True
-        # print(json.dumps(dt, indent=4, ensure_ascii=False))
 
 
 if __name__ == "__main__":
