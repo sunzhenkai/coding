@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#! coding: utf-8
 
 import os.path
 import json
@@ -29,14 +30,26 @@ def load():
 
 def sink(dt):
     with open(DATA_FILE, 'w+') as f:
-        json.dump(dt, f, indent=4)
+        json.dump(dt, f, indent=4, ensure_ascii=False)
+
+
+def pt(rd):
+    print(rd['name'])
+    print('#' * 5)
+    print(rd['desc'])
 
 
 def add():
     name = input('name: ').strip()
-    desc = input('desc: ').strip()
+    desc = []
+    print('desc: ', end='')
+    while True:
+        ip = input().strip()
+        if '...' == ip:
+            break
+        desc.append(ip)
     dt = load()
-    dt['data'].append({'name': name, 'desc': desc})
+    dt['data'].append({'name': name, 'desc': '\n'.join(desc)})
     sink(dt)
 
 
@@ -46,7 +59,9 @@ def take():
         print('no candidate')
     else:
         ro = random.randint(0, len(dt) - 1)
-        print(json.dumps(dt[ro], indent=4))
+        rd = dt[ro]
+        pt(rd)
+        # print(json.dumps(dt[ro], indent=4, ensure_ascii=False))
 
 
 def remove():
@@ -61,9 +76,16 @@ def remove():
         dt.remove(i)
     sink(og)
 
+
 def show():
     dt = load()['data']
-    print(json.dumps(dt, indent=4))
+    ipt = False
+    for rd in dt:
+        pt(rd)
+        if not ipt:
+            print('\n', '-' * 50, end='\n\n', sep='')
+            ipt = True
+        # print(json.dumps(dt, indent=4, ensure_ascii=False))
 
 
 if __name__ == "__main__":
