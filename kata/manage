@@ -33,8 +33,8 @@ def sink(dt):
 
 
 def add():
-    name = input('name: ')
-    desc = input('desc: ')
+    name = input('name: ').strip()
+    desc = input('desc: ').strip()
     dt = load()
     dt['data'].append({'name': name, 'desc': desc})
     sink(dt)
@@ -50,7 +50,7 @@ def take():
 
 
 def remove():
-    name = input('name: ')
+    name = input('name: ').strip()
     og = load()
     dt = og['data']
     tr = []
@@ -68,7 +68,7 @@ def show():
 
 if __name__ == "__main__":
     while True:
-        op = input('command [add|take|rm|show|quit] : ')
+        op = input('command [add|take|rm|show|quit] : ').strip()
         if op == 'exit' or op == 'quit' or op == 'q':
             break
         elif op == 'add':
