@@ -70,12 +70,13 @@ def remove():
 
 def show():
     dt = load()['data']
-    ipt = False
+    flag = True
     for rd in dt:
-        pt(rd)
-        if not ipt:
+        if flag:
+            flag = False
+        else:
             print('\n', '-' * 50, end='\n\n', sep='')
-            ipt = True
+        pt(rd)
 
 
 if __name__ == "__main__":
