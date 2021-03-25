@@ -2,6 +2,12 @@
 # set -x
 # cp ../template/template.cpp "$1" && vim "$1"
 # author="$(cat i.conf | sed 's/author:\s(.*)/\1/g')"
+
+if [ -e "$1" ]; then
+    echo "file $1 exists"
+    exit 1
+fi
+
 author=wii
 email=zhenkai.sun@qq.com
 cat ../template/template.cpp | \
