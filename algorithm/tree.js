@@ -1,12 +1,8 @@
-/**
- * 定义二叉树节点
- */
 function TreeNode(val) {
     this.val = val;
     this.left = this.right = null;
 }
 
-// 深度优先遍历
 function dfs(root) {
     if (root == null) return;
 
@@ -15,7 +11,6 @@ function dfs(root) {
     dfs(root.right);
 }
 
-// 广度优先遍历
 function bfs(root) {
     var nodes = [root];
     while (nodes.length != 0) {
@@ -26,7 +21,6 @@ function bfs(root) {
     }
 }
 
-// 构造树
 function buildTree(nums, idx) {
     var v = nums.shift();
     if (v == null || v == undefined) return null;
