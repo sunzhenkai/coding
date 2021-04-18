@@ -26,15 +26,23 @@ function ListNode(val) {
  * @param {ListNode} l2
  * @return {ListNode}
  */
+
 var mergeTwoLists = function(l1, l2) {
     if (l1 == null) return l2;
     if (l2 == null) return l1;
 
     var cur = res = l1.val < l2.val ? l1 : l2;
     while (l1 != null && l2 != null) {
+        var smaller = null;
         if (l1.val < l2.val) {
+            smaller = l1;
             l1 = l1.next;
+        } else {
+            smaller = l2;
+            l2 = l2.next;
         }
+        cur.next = smaller;
+        cur = smaller;
     }
     cur.next = l1 != null ? l1 : l2;
     return res;
