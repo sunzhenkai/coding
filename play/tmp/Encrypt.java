@@ -18,7 +18,7 @@ public class Encrypt {
     }
 
     public static void main(String[] args) {
-        String s = "1234一二三四abcd😋😋😋😋";
+        String s = "1一😋فور 하나.ทั้งมวล二三四234";
         System.out.println(encryptCustomKey(s));
     }
 }

@@ -20,5 +20,5 @@ function encryptCustomKey(beforeKey) {
     return String.fromCharCode(...r_key);
 }
 
-var res = encryptCustomKey("1234一二三四abcd😋😋😋😋");
+var res = encryptCustomKey("1一😋فور 하나.ทั้งมวล二三四234");
 console.log(res);
