@@ -4,3 +4,4 @@
 **/.vscode
 **/.idea
 .mk.out
+.DS_Store
