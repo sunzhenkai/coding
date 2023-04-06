@@ -5,25 +5,33 @@
 
 using namespace std;
 
-void quickSort(int nums[], int l, int r) {
-    int i = l, j = r;
-    int pivot;
-
-    if (i < j) {
-        pivot = nums[i];
-        while (i != j) {
-            while (j > i && nums[j] > pivot) --j;
-            nums[i] = nums[j];
-            while (i < j && nums[i] < pivot) ++i;
-            nums[j] = nums[i];
+// 对 nums[left, right] 排序
+void QuickSort(int nums[], int left, int right) {
+    int cur_l = left, cur_r = right;
+    while (cur_l < cur_r) {
+        int pivot = nums[cur_l];
+        while (cur_l != cur_r) {
+            while (cur_r > cur_l && nums[cur_r] > pivot) --cur_r;
+            nums[cur_l] = nums[cur_r];
+            while (cur_r > cur_l && nums[cur_l] < pivot) ++cur_l;
+            nums[cur_r] = nums[cur_l];
         }
-
-        nums[i] = pivot;
-        quicSort(nums, l, i-1);
-        quicSort(nums, i+1, r);
+        nums[cur_l] = pivot;
+        QuickSort(nums, left, cur_l - 1);
+        QuickSort(nums, cur_r + 1, right);
     }
 }
 
+void print_array(int nums[], int len) {
+    for (int i = 0; i < len; ++i) {
+        std::cout << nums[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
 int main() {
+    int nums[5] = {2, 1, 5, 4, 3};
+    QuickSort(nums, 0, 4);
+    print_array(nums, 5);
     return 0;
 }
