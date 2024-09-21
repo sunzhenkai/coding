@@ -11,6 +11,8 @@
 #include <string>
 #include <map>
 #include <set>
+#include <vector>
+#include <unordered_map>
 #include "../template/utils.h"
 #include "../template/leetcode.h"
 
