@@ -1,0 +1,6 @@
+#!/bin/zsh
+export CODING_BASE=$(echo "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)")
+export PATH=${CODING_BASE}/bin:$PATH
+
+$SHELL -i
+
