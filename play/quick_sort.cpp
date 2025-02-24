@@ -7,6 +7,7 @@ using namespace std;
 
 // 对 nums[left, right] 排序
 void QuickSort(int nums[], int left, int right) {
+    if (left >= right) return;
     int cur_l = left, cur_r = right;
     while (cur_l < cur_r) {
         int pivot = nums[cur_l];
@@ -17,9 +18,9 @@ void QuickSort(int nums[], int left, int right) {
             nums[cur_r] = nums[cur_l];
         }
         nums[cur_l] = pivot;
-        QuickSort(nums, left, cur_l - 1);
-        QuickSort(nums, cur_r + 1, right);
     }
+    QuickSort(nums, left, cur_l - 1);
+    QuickSort(nums, cur_r + 1, right);
 }
 
 void print_array(int nums[], int len) {
