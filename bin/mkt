@@ -4,21 +4,21 @@
 # author="$(cat i.conf | sed 's/author:\s(.*)/\1/g')"
 
 if [ -e "$1" ]; then
-    echo "file $1 exists"
-    exit 1
+  echo "file $1 exists"
+  exit 1
 fi
 
 if [[ "$1" == *"cc" || "$1" == *"cpp" ]]; then
-    fl=$1
+  fl=$1
 else
-    fl=$1.cpp
+  fl=$1.cpp
 fi
 
 author=zhenkai.sun
 email=zhenkai.sun@qq.com
-cat ${CODING_BASE}/template/template.cpp | \
-    sed "s/\(@file\)/\1   $fl/g" | \
-    sed "s/\(@brief\)/\1  $2/g" | \
-    sed "s/\(@author\)/\1 $author/g" | \
-    sed "s/\(@email\)/\1  $email/g" | \
-    sed "s/\(@date\)/\1   $(date)/g" > "$fl" && vim "$fl" 
+cat ${CODING_BASE}/template/template.cpp |
+  sed "s/\(@file\)/\1   $fl/g" |
+  sed "s/\(@brief\)/\1  $2/g" |
+  sed "s/\(@author\)/\1 $author/g" |
+  sed "s/\(@email\)/\1  $email/g" |
+  sed "s/\(@date\)/\1   $(date)/g" >"$fl" # && vim "$fl" # disable edit
