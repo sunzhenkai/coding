@@ -101,6 +101,7 @@ void Display(Node *root) {
 int main() {
   Node e{1, nullptr}, d{2, &e}, c{3, &d}, b{4, &c}, a{5, &b};
   Display(&a);
+  // SolveV1(&a);
   SolveV2(&a);
   Display(&a);
   return 0;
