@@ -4,13 +4,13 @@
 [ -z "$1" ] && echo "ERROR: no input file" && exit 1
 
 if [[ "$1" =~ "cpp" ]]; then
-    g++ -std=c++11 -I${CODING_BASE}/template -o .mk.out "$1" 
+  g++ -std=c++17 -I${CODING_BASE}/template -o .mk.out "$1"
 else
-    g++ -std=c++11 -I${CODING_BASE}/template -o .mk.out "$1.cpp" 
+  g++ -std=c++17 -I${CODING_BASE}/template -o .mk.out "$1.cpp"
 fi
 
 if [ -e "$1.in" ]; then
-    ./.mk.out < "$1.in"
+  ./.mk.out <"$1.in"
 else
-    ./.mk.out
+  ./.mk.out
 fi
